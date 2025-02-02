@@ -16,12 +16,12 @@ public class EmployeeController {
 
     private EmployeeService employeeService;
 
-    @GetMapping
+    @GetMapping("/getEmployeeCount/{amount}")
     public ResponseEntity<List<Employee>> getEmployeesBySalaryRange(@PathVariable double amount) {
         return ResponseEntity.ok(employeeService.getEmployeesBySalary(amount));
     }
 
-    @GetMapping
+    @GetMapping("/getEmployeeCount")
     public ResponseEntity<String> getTotalEmployeeCount() {
         return ResponseEntity.ok("Total employees record counts =" + employeeService.fetchEmployees());
     }
